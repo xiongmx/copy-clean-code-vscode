@@ -1,0 +1,87 @@
+{
+  "name": "copy-clean-code",
+  "displayName": "复制通用版非注释和空白行",
+  "description": "按语言语法识别注释，将选区或全文去除注释和空白行后复制到剪贴板，不修改文档。",
+  "version": "1.0.1",
+  "publisher": "xiongmx",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "copy",
+    "clipboard",
+    "comments",
+    "注释",
+    "空白行"
+  ],
+  "main": "./dist/extension.cjs",
+  "activationEvents": [
+    "onCommand:copyCleanCode.copy"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "nginx",
+        "aliases": [
+          "Nginx",
+          "nginx"
+        ],
+        "filenames": [
+          "nginx.conf"
+        ],
+        "extensions": [
+          ".nginx"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "copyCleanCode.copy",
+        "title": "复制通用版非注释和空白行到剪贴板",
+        "category": "代码清理"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "copyCleanCode.copy",
+          "when": "editorTextFocus",
+          "group": "9_cutcopypaste@5"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "copyCleanCode.copy"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "vscode:prepublish": "npm run build",
+    "test": "node --test test/strip.test.mjs test/extension.test.cjs",
+    "test:integration": "xvfb-run -a node test/run-integration.cjs",
+    "package": "vsce package --no-dependencies --allow-missing-repository --out artifacts/copy-clean-code-1.0.1.vsix"
+  },
+  "dependencies": {
+    "shiki": "4.5.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.99.0",
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "4.0.0",
+    "esbuild": "0.28.2"
+  }
+}

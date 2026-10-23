@@ -1,0 +1,40 @@
+node_modules/
+.vscode-test/
+dist/
+artifacts/
+*.vsix
+
+# Runtime files, logs, caches and test user data
+*.sock
+*.socket
+*.pid
+*.log
+logs/
+.cache/
+.npm/
+coverage/
+.tmp/
+tmp/
+temp/
+*user-data*/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+
+# Editor and OS temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

@@ -1,0 +1,12 @@
+{
+  "name": "copy-clean-code-integration-harness",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "vscode": "^1.80.0" },
+  "contributes": {
+    "languages": [
+      { "id": "nginx-conf", "aliases": ["Nginx third-party test mode"] },
+      { "id": "nginxconf", "aliases": ["Nginx alternate third-party test mode"] }
+    ]
+  }
+}
